@@ -116,6 +116,18 @@
       ],
       "status": "Solicitado",
       "id": 3
+    },
+    {
+      "nome": "Dell Silva",
+      "carne": "Picanha",
+      "pao": "Americano",
+      "opcionais": [
+        "Bacon",
+        "Salame",
+        "Tomate"
+      ],
+      "status": "Solicitado",
+      "id": 4
     }
   ]
 }

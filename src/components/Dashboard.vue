@@ -29,30 +29,36 @@
                     <button class="delete-btn">Cancelar</button>
                 </div>
             </div>
-            <div class="burger-table-row">
-                <div class="order-number">1</div>
-                <div>Dell</div>
-                <div>Pão de Hamburger</div>
-                <div>Filé</div>
-                <div>
-                    <ul>
-                        <li>Bacon</li>
-                        <li>Atum</li>
-                    </ul>
-                </div>
-                <div>
-                    <select name="status" class="status">
-                        <option value="">Selecione</option>
-                    </select>
-                    <button class="delete-btn">Cancelar</button>
-                </div>
-            </div>            
         </div>
     </div>
 </template>
 <script>
 export default {
-    name: "Dashboard"
+    name: "Dashboard",
+    data() {
+        return {
+           burgers: null,
+           burger_id: null,
+           status: []
+        }
+    },
+    methods: {
+        async getPedidos() {
+
+            const req = await fetch("http://localhost:3000/burgers");
+
+            const data = await req.json();
+
+            this.burgers = data;
+
+            console.log(this.burgers)
+
+
+        }
+    },
+    mounted() {
+        this.getPedidos();
+    }
 }
 </script>
 <style scoped>
@@ -60,6 +66,7 @@ export default {
     max-width: 1200px;
     margin: 0 auto;
 }
+
 #burger-table-heading,
 #burger-table-rows,
 .burger-table-row {
